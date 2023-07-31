@@ -29,17 +29,16 @@ const Login = () => {
                 password,
             });
             if (response.data.message == "User doesn't Exist!") {
-                navigate("/");
                 alert("User doesn't Exist!");
             }
             if (response.data.message == "Username or Password is incorrect") {
                 alert("Username or Password is incorrect.");
+            }
+            if (response.data.token != null) {
+                setCookies("access_token", response.data.token);
+                window.localStorage.setItem("userID", response.data.userID);
                 navigate("/");
             }
-
-            setCookies("access_token", response.data.token);
-            window.localStorage.setItem("userID", response.data.userID);
-            navigate("/");
 
         } catch (error) {
             console.error(error);
