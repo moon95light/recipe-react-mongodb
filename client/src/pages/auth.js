@@ -28,10 +28,10 @@ const Login = () => {
                 username,
                 password,
             });
-            if (response.data.message == "User doesn't Exist!") {
+            if (response.data.message === "User doesn't Exist!") {
                 alert("User doesn't Exist!");
             }
-            if (response.data.message == "Username or Password is incorrect") {
+            if (response.data.message === "Username or Password is incorrect") {
                 alert("Username or Password is incorrect.");
             }
             if (response.data.token != null) {
