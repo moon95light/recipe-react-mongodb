@@ -30,9 +30,11 @@ const Login = () => {
             });
             if (response.data.message === "User doesn't Exist!") {
                 alert("User doesn't Exist!");
+                window.location.reload();
             }
             if (response.data.message === "Username or Password is incorrect") {
                 alert("Username or Password is incorrect.");
+                window.location.reload();
             }
             if (response.data.token != null) {
                 setCookies("access_token", response.data.token);
