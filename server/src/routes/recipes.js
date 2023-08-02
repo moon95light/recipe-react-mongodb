@@ -17,7 +17,7 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
     const recipe = new RecipeModel(req.body);
     try {
-        const response = await recipe.save(); 
+        const response = await recipe.save();
         res.json(response);
     } catch (error) {
         res.json(error);
@@ -42,8 +42,20 @@ router.get("/savedRecipes/ids", async (req, res) => {
         res.json({ savedRecipes: user?.savedRecipes });
     } catch (err) {
         res.json(err)
-        
     }
 });
+
+router.get("/savedRecipes", async (req, res) => {
+    try {
+        const user = await UserModel.findById(req.body.userID);
+        const savedRecipes = await RecipeModel.find({
+            _id: { $in: user.savedRecipes },
+        });
+        res.json({ savedRecipes });
+    }
+    catch (err) {
+            res.json(err);
+        }
+    });
 
 export { router as recipesRouter };
