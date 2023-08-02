@@ -9,7 +9,6 @@ export const CreateRecipe = () => {
     });
 
     const handleChange = (event) => {
-        const {name, value}
     }
     return (
         <div className="create-recipe">
