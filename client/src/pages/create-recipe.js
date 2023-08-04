@@ -25,7 +25,7 @@ export const CreateRecipe = () => {
         ingredients[idx] = value;
         setRecipe({ ...recipe, [ingredients]: ingredients })
     };
-
+    console.log(recipe);
     return (
         <div className="create-recipe">
             <h2>Create Recipe</h2>
