@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 
 export const CreateRecipe = () => {
     const [recipe, setRecipe] = useState({
@@ -10,8 +10,8 @@ export const CreateRecipe = () => {
         userOwner: 0.
     });
 
-    const addIngredient = () =>{
-        setRecipe({...recipe, ingredients: [...recipe.ingredients, ""]});
+    const addIngredient = () => {
+        setRecipe({ ...recipe, ingredients: [...recipe.ingredients, ""] });
     };
 
     const handleChange = (event) => {
@@ -35,11 +35,11 @@ export const CreateRecipe = () => {
                     id="name"
                     name="name"
                     onChange={(event) => handleIngredientChange(event, idx)} />
-                    
+
                 <label htmlFor="ingredients">Ingredients</label>
-                {recipe.ingredients.map((ingredient, idx)=>(
+                {recipe.ingredients.map((ingredient, idx) => (
                     <input key={idx} type="text" name="ingredients" value={ingredient}
-                    onChange={handleIngredientChange}/>
+                        onChange={handleIngredientChange} />
                 ))}
                 <button onClick={addIngredient}>Add Ingredient</button>
                 <label htmlFor="instructions">Instructions</label>
