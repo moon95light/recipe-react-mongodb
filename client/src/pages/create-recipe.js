@@ -9,11 +9,7 @@ export const CreateRecipe = () => {
         cookingTime: 0,
         userOwner: 0.
     });
-
-    const addIngredient = () => {
-        setRecipe({ ...recipe, ingredients: [...recipe.ingredients, ""] });
-    };
-
+    
     const handleChange = (event) => {
         const { name, value } = event.target;
         setRecipe({ ...recipe, [name]: value })
@@ -25,6 +21,11 @@ export const CreateRecipe = () => {
         ingredients[idx] = value;
         setRecipe({ ...recipe, [ingredients]: ingredients })
     };
+
+    const addIngredient = () => {
+        setRecipe({ ...recipe, ingredients: [...recipe.ingredients, ""] });
+    };
+
     console.log(recipe);
     return (
         <div className="create-recipe">
