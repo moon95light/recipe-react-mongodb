@@ -19,7 +19,7 @@ export const CreateRecipe = () => {
         setRecipe({ ...recipe, [name]: value })
     };
 
-    const handleIngredientChange = (event) => {
+    const handleIngredientChange = (event, idx) => {
         const { value } = event.target;
         const ingredients = recipe.ingredients;
         ingredients[idx] = value;
