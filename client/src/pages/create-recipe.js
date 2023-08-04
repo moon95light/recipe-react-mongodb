@@ -39,7 +39,7 @@ export const CreateRecipe = () => {
                 <label htmlFor="ingredients">Ingredients</label>
                 {recipe.ingredients.map((ingredient, idx)=>(
                     <input key={idx} type="text" name="ingredients" value={ingredient}
-                    onChange={}
+                    onChange={handleIngredientChange}/>
                 ))}
                 <button onClick={addIngredient}>Add Ingredient</button>
                 <label htmlFor="instructions">Instructions</label>
