@@ -9,7 +9,7 @@ export const CreateRecipe = () => {
         cookingTime: 0,
         userOwner: 0.
     });
-    
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setRecipe({ ...recipe, [name]: value })
@@ -19,7 +19,7 @@ export const CreateRecipe = () => {
         const { value } = event.target;
         const ingredients = recipe.ingredients;
         ingredients[idx] = value;
-        setRecipe({ ...recipe, [ingredients]: ingredients })
+        setRecipe({ ...recipe, ingredients })
     };
 
     const addIngredient = () => {
@@ -35,7 +35,7 @@ export const CreateRecipe = () => {
                 <input type="text"
                     id="name"
                     name="name"
-                    onChange={(event) => handleIngredientChange(event, idx)} />
+                    onChange={handleChange} />
 
                 <label htmlFor="ingredients">Ingredients</label>
                 {recipe.ingredients.map((ingredient, idx) => (
