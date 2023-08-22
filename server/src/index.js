@@ -14,7 +14,7 @@ app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
 // mongoose.connect("mongodb://localhost:27017/reactrecipe");
 
-const dbUrl = 'mongodb://localhost:27017/reactrecipe';
+const dbUrl = 'mongodb://127.0.0.1:27017/reactrecipe';
 
 mongoose.connect(dbUrl)
   .then(() => {
