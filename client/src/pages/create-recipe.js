@@ -12,18 +12,20 @@ export const CreateRecipe = () => {
 
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setRecipe({ ...recipe, [name]: value })
+        setRecipe({ ...recipe, [name]: value });
     };
 
     const handleIngredientChange = (event, idx) => {
         const { value } = event.target;
         const ingredients = recipe.ingredients;
         ingredients[idx] = value;
-        setRecipe({ ...recipe, ingredients })
+        setRecipe({ ...recipe, ingredients });
+        console.log(ingredients);
     };
 
     const addIngredient = () => {
         setRecipe({ ...recipe, ingredients: [...recipe.ingredients, ""] });
+        console.log(recipe);
     };
 
     console.log(recipe);
@@ -36,29 +38,42 @@ export const CreateRecipe = () => {
                     id="name"
                     name="name"
                     onChange={handleChange} />
+                <br></br>
 
                 <label htmlFor="ingredients">Ingredients</label>
                 {recipe.ingredients.map((ingredient, idx) => (
-                    <input key={idx} type="text" name="ingredients" value={ingredient}
-                        onChange={handleIngredientChange} />
+                    <>
+                        <input key={idx}
+                            type="text"
+                            name="ingredients"
+                            value={ingredient}
+                            onChange={(event) => handleIngredientChange(event, idx)}
+                        />
+                        <br></br>
+                    </>
                 ))}
                 <button onClick={addIngredient}>Add Ingredient</button>
+                <br></br>
                 <label htmlFor="instructions">Instructions</label>
                 <textarea
                     id="instructions"
                     name="instructions"
                     onChange={handleChange}
                 ></textarea>
+                <br></br>
                 <label htmlFor="imageUrl">Image URL</label>
                 <input type="text"
                     id="imageUrl"
                     name="imageUrl"
                     onChange={handleChange} />
+                <br></br>
                 <label htmlFor="cookingTime">Cooking Time(min)</label>
                 <input type="number"
                     id="cookingTime"
                     name="cookingTime"
                     onChange={handleChange} />
+                    <br></br>
+                <button type="submit">Create Recipe</button>
             </form>
         </div>
     );

@@ -54,8 +54,8 @@ router.get("/savedRecipes", async (req, res) => {
         res.json({ savedRecipes });
     }
     catch (err) {
-            res.json(err);
-        }
-    });
+        res.json(err);
+    }
+});
 
 export { router as recipesRouter };
