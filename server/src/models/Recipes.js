@@ -14,10 +14,6 @@ const RecipeSchema = new mongoose.Schema({
         ref: "users",
         required: true,
     } ,
-    numbers: {
-        type: String,
-        required: true
-    }
 });
 
 export const RecipeModel = mongoose.model("recipes", RecipeSchema);
